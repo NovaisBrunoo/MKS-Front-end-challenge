@@ -8,12 +8,7 @@ import { formateCurrency } from "@/func/currentPrice";
 import { useUserContext } from "@/context/contextGlobal";
 
 export default function CardProduct() {
-  const { setItemProduct, itemProduct } = useUserContext();
-  const [products, setProducts] = useState<IProducts>({
-    count: 0,
-    products: [] as IProduct[],
-  }
-  );
+  const { setItemProduct, itemProduct, products, setProducts } = useUserContext();
 
 
   async function handleGetProducts() {

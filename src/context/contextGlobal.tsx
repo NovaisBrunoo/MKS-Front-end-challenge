@@ -16,6 +16,8 @@ export interface IUserContext {
     setShowModal: (value: boolean) => void;
     itemProduct: ICartProduct[];
     setItemProduct: (value: ICartProduct[]) => void;
+    products: IProducts;
+    setProducts: (value: IProducts) => void;
 }
 
 export const UserContext = createContext<IUserContext>({
@@ -23,17 +25,30 @@ export const UserContext = createContext<IUserContext>({
     setShowModal: () => { },
     itemProduct: [] as ICartProduct[],
     setItemProduct: () => { },
+    products: {
+        count: 0,
+        products: [] as IProduct[],
+    },
+    setProducts: () => { },
 });
 
 export function UserProvider({ children }: IUserProps) {
     const [showModal, setShowModal] = useState(false);
     const [itemProduct, setItemProduct] = useState<ICartProduct[]>([]);
+    const [products, setProducts] = useState<IProducts>({
+        count: 0,
+        products: [] as IProduct[],
+    }
+    );
+
 
     const contextValue = {
         showModal,
         setShowModal,
         itemProduct,
         setItemProduct,
+        products,
+        setProducts
     };
 
     return (
