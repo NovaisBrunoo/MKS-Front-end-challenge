@@ -8,7 +8,7 @@ import { formateCurrency } from "@/func/currentPrice";
 import { useUserContext } from "@/context/contextGlobal";
 
 export default function CardProduct() {
-  const { setItemProduct, itemProduct, products, setProducts } = useUserContext();
+  const { setItemProduct, itemProduct, products, setProducts, setShowModal } = useUserContext();
 
 
   async function handleGetProducts() {
@@ -32,6 +32,7 @@ export default function CardProduct() {
       amount: 1
     }
     setItemProduct([...itemProduct, item]);
+    setShowModal(true);
   }
 
 
